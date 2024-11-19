@@ -1,21 +1,38 @@
-import { useState } from "react"
+import { useState } from "react";
 
 function App() {
- 
- const [val , setVal]  = useState({
-  name:"himanshu",
-  isBanned:false
- });
+  // const [val, setVal] = useState({
+  //   name: "himanshu",
+  //   isBanned: false,
+  // });
+
+  const[data, setData] = useState([1,2,3,4,5,6])
   return (
-   <>
-    <div>
-      name:{val.name}<br/>
-      IsBanned: {val.isBanned.toString()} <br/>
-      <button onClick={()=> setVal({...val, isBanned:true})} className="bg-blue-500 text-white p-2 mx-5 rounded">Change</button>
-    </div>
-    
-   </>
-  )
+    <>
+      {/* <div className="m-56">
+        <h1>Name:{val.name}</h1>
+        <h2>IsBanned:{val.isBanned.toString()}</h2>
+        <button
+          onClick={() => setVal({ ...val, isBanned: !val.isBanned})}
+          className={`${
+            val.isBanned ? "bg-blue-600" : "bg-red-600"
+          } text-white text-xs px-6 py-1 rounded`}
+        >
+          {val.isBanned.toString()}
+        </button>
+      </div> */}
+      
+      <div  className="p-5">
+        {data.map((item)=> <h1>{item}</h1>)}
+        <button 
+        className="px-6 py-1 text-white bg-blue-700 rounded"
+        onClick={()=> setData(()=>{
+          return data.filter((item, index)=> index != data.length-1)
+        })}
+        >Click</button>
+      </div>
+    </>
+  );
 }
 
-export default App
+export default App;
