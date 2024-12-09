@@ -3,7 +3,7 @@ import Card from "./components/Card"
 import Card2 from "./components/Card2"
 
 function App() {
-
+ 
   const data = [
     {
       name: "Himanshu",
