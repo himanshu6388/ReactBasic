@@ -3,8 +3,13 @@ import {Link} from 'react-router-dom';
 function Home(){
     return(
         <>
-            <div className="bg-zinc-300 w-full h-96 flex items-center justify-center p-10 mt-32">
-                Home
+            <div className="w-1/2 m-auto mt-10">
+                <h1 className="text-red-200 text-5xl mb-2">Home</h1>
+
+                <p className="mb-2 text-zinc-500">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Id a ipsam illo ducimus similique. Quas sequi harum delectus dolores suscipit.
+                </p>
+                <button className="text-white p-3 bg-zinc-300 rounded">Explore More</button>
             </div>
         </>
     )
