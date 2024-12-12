@@ -5,13 +5,18 @@ function Nav(){
     return(
         <>
         <nav className="mt-10 flex justify-center gap-10 ">
-          <NavLink style={(e)=>{
-            return {
-                color:e.isActive ? "tomato" : "",
-                fontWeight:e.isActive ? "bold" : ""
-            }
-          }} 
-          to="/">Home</NavLink> 
+          <NavLink to="/">
+             {(e)=>{
+                return(
+                    <span
+                     className={[
+                        e.isActive?"text-red-600":"",
+                        e.isActive?"font-bold":""
+                     ].join(" ")}
+                    >Home</span>
+                )
+              }}
+          </NavLink> 
           <NavLink
           style={(e)=>{
             return {
