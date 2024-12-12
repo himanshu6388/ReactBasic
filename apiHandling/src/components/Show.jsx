@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
-import axios from "axios";
+import axios from "../utility/axios";
 
 function Show(){
 
@@ -9,13 +9,18 @@ function Show(){
   const [product, setProduct] = useState([])
 
   const getProduct = () =>{
-    const api = "https://fakestoreapi.com/products"
+   
     
-    axios.get(api).then(product =>{
+    axios.get("/product").then(product =>{
       console.log(product);
       setProduct(product.data);
     }).catch(err=>console.error(err));
   }
+
+  useEffect(()=>{
+        getProduct()
+  },[])
+
     return(
         <>
             <button
@@ -28,7 +33,7 @@ function Show(){
           <ul>  
               {product.length > 0 ? 
               product.map((p)=>(
-              <li className=' mb-2 p-5 bg-red-200 rounded'>
+              <li key={id} className=' mb-2 p-5 bg-red-200 rounded'>
                 {p.title}
               </li>
               )) : <h1>Loading...</h1>
